@@ -1,7 +1,7 @@
 Source: openvpn3-manager-applet
 Section: VPN
 Priority: optional
-Version: 1.0.0
+Version: 1.0.1
 Maintainer: Ruan Maia <ruancarlos.maia@gmail.com>
 Standards-Version: 4.0.0
 Package: openvpn3-manager-applet

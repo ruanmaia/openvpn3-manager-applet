@@ -3,13 +3,12 @@
 mkdir -p $HOME/.vpn
 mkdir -p $HOME/.config/openvpn3-manager-applet
 
-if [ ! -f $HOME/.config/openvpn3-manager-applet/app.pid ]; then
-    touch $HOME/.config/openvpn3-manager-applet/app.pid
-fi
-
 if [ ! -f $HOME/.config/openvpn3-manager-applet/app.log ]; then
     touch $HOME/.config/openvpn3-manager-applet/app.log
 fi
 
-/usr/bin/python3 /usr/share/openvpn3-manager-applet/run.py &>> $HOME/.config/openvpn3-manager-applet/app.log &
-echo $! > $HOME/.config/openvpn3-manager-applet/app.pid
+if [ ! -f $HOME/.config/openvpn3-manager-applet/app.pid ]; then
+    touch $HOME/.config/openvpn3-manager-applet/app.pid
+    /usr/bin/python3 /usr/share/openvpn3-manager-applet/run.py &>> $HOME/.config/openvpn3-manager-applet/app.log &
+    echo $! > $HOME/.config/openvpn3-manager-applet/app.pid
+fi

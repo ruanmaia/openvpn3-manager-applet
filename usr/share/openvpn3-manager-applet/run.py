@@ -259,6 +259,9 @@ class OpenVPN3ManagerApplet:
             subprocess.run(
                 [self._EXEC_BIN, 'session-manage', '--config', vpn_name, '--disconnect']
             )
+        subprocess.run(
+            ['rm', '-rf', self._HOME + '/.config/openvpn3-manager-applet/app.pid']
+        )
 
 
     def run(self):
