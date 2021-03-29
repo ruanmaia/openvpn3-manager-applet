@@ -6,11 +6,11 @@ Follows this instructions:
 
 [https://openvpn.net/cloud-docs/openvpn-3-client-for-linux/](https://openvpn.net/cloud-docs/openvpn-3-client-for-linux/)
 
-## 2. Download and install the `openvpn3-manager-applet-v1.0.0.deb`
+## 2. Download and install the `openvpn3-manager-applet-v1.0.1.deb`
 ```shell
-$ wget https://github.com/ruanmaia/openvpn3-manager-applet/raw/master/openvpn3-manager-applet-v1.0.0.deb
+$ wget https://github.com/ruanmaia/openvpn3-manager-applet/raw/master/openvpn3-manager-applet-v1.0.1.deb
 
-$ apt install ./openvpn3-manager-applet-v1.0.0.deb 
+$ apt install ./openvpn3-manager-applet-v1.0.1.deb 
 ```
 ## 3. Initialize the OpenVPN 3.0 Manager Applet
 Open your application menu and type `openvpn3`
