@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0.0
+Name=OpenVPN3 Manager Applet
+Comment=A tiny applet for managing OpenVPN3 sessions
+Exec=/usr/bin/openvpn3-manager-applet
+Icon=/usr/share/openvpn3-manager-applet/application_logo.png
+Path=/usr/share/openvpn3-manager-applet
+Terminal=false
+Type=Application
+Categories=Utility;Application;

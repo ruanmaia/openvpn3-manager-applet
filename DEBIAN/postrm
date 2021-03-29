@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm -rf \
+/usr/bin/openvpn3-manager-applet \
+/usr/share/openvpn3-manager-applet \
+/usr/share/applications/openvpn3-manager-applet.desktop
