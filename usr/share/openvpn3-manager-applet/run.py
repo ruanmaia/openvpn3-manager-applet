@@ -2,6 +2,7 @@ import gi
 import os
 import subprocess
 import pickle
+import signal
 
 from pathlib import Path
 
@@ -30,6 +31,8 @@ class OpenVPN3ManagerApplet:
         
         self._credentials = {}
         self._auth_dialog = None
+
+        signal.signal(signal.SIGKILL, self._quit)
 
         self._load_credentials()
         self._load_config_files()
@@ -61,9 +64,17 @@ class OpenVPN3ManagerApplet:
             config_files.add(f.stem)            
             if f.stem not in self._credentials.keys():
                 print('IMPORTING (%s)' % f.stem)
-                subprocess.run(
-                    [self._EXEC_BIN, 'config-import', '--config', f.absolute(), '--name', f.stem, '--persistent']
+                r = subprocess.run(
+                    [self._EXEC_BIN, 'config-show', '--config', f.stem],
+                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
                 )
+                if r.returncode == 0:
+                    print('THIS CONFIG FILE ALREADY EXISTS!')
+                else:
+                    subprocess.run(
+                        [self._EXEC_BIN, 'config-import', '--config', f.absolute(), '--name', f.stem, '--persistent']
+                    )
+
                 self._credentials.setdefault(f.stem, None)
 
         configs_to_remove = set(self._credentials) - config_files

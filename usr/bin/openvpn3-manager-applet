@@ -11,4 +11,9 @@ if [ ! -f $HOME/.config/openvpn3-manager-applet/app.pid ]; then
     touch $HOME/.config/openvpn3-manager-applet/app.pid
     /usr/bin/python3 /usr/share/openvpn3-manager-applet/run.py &>> $HOME/.config/openvpn3-manager-applet/app.log &
     echo $! > $HOME/.config/openvpn3-manager-applet/app.pid
+else
+    if [ kill -0 $(cat app.pid) ]; then
+        /usr/bin/python3 /usr/share/openvpn3-manager-applet/run.py &>> $HOME/.config/openvpn3-manager-applet/app.log &
+        echo $! > $HOME/.config/openvpn3-manager-applet/app.pid
+    fi
 fi
