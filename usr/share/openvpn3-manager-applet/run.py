@@ -2,7 +2,6 @@ import gi
 import os
 import subprocess
 import pickle
-import signal
 
 from pathlib import Path
 
@@ -31,8 +30,6 @@ class OpenVPN3ManagerApplet:
         
         self._credentials = {}
         self._auth_dialog = None
-
-        signal.signal(signal.SIGKILL, self._quit)
 
         self._load_credentials()
         self._load_config_files()
